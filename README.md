@@ -4,8 +4,8 @@ A Task to test technical skills
 Link to test the app online: https://appetize.io/app/k6pr993tmjf0we16ncn0pk9vr8
 
 # Tools & Technologies used:
-IDE      : XCode 11.3.1
-Language : Swift 5.0
+- IDE      : XCode 11.3.1
+- Language : Swift 5.0
 
 # Features included:
 - Clean code based on my experience with MVVM architecture
