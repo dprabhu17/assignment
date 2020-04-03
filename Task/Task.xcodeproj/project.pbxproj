@@ -17,7 +17,6 @@
 		C14E7A3224377B680036F860 /* FeedsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3124377B680036F860 /* FeedsListViewModel.swift */; };
 		C14E7A3524377B770036F860 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3324377B770036F860 /* DynamicValue.swift */; };
 		C14E7A3624377B770036F860 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3424377B770036F860 /* Feed.swift */; };
-		C14E7A4024377BB90036F860 /* HTTPServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3F24377BB90036F860 /* HTTPServices.swift */; };
 		C14E7A4324377D950036F860 /* FeedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4124377D950036F860 /* FeedListCell.swift */; };
 		C14E7A4424377D950036F860 /* FeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4224377D950036F860 /* FeedsListViewController.swift */; };
 		C14E7A4D24377DF30036F860 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4624377DF30036F860 /* UIColor+Custom.swift */; };
@@ -29,6 +28,7 @@
 		C14E7A58243780AD0036F860 /* FeedListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A55243780AD0036F860 /* FeedListViewModelTests.swift */; };
 		C14E7A59243780AD0036F860 /* FeedListServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A56243780AD0036F860 /* FeedListServiceTest.swift */; };
 		C14E7A5A243780AD0036F860 /* FeedListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A57243780AD0036F860 /* FeedListDataSourceTests.swift */; };
+		C14E7A5F2437B0B70036F860 /* HTTPServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A5E2437B0B70036F860 /* HTTPServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		C14E7A3124377B680036F860 /* FeedsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewModel.swift; sourceTree = "<group>"; };
 		C14E7A3324377B770036F860 /* DynamicValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
 		C14E7A3424377B770036F860 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		C14E7A3F24377BB90036F860 /* HTTPServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPServices.swift; path = ../../../../../Documents/AssignCTS/tmp/Task/Task/Application/Services/HTTPServices.swift; sourceTree = "<group>"; };
 		C14E7A4124377D950036F860 /* FeedListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListCell.swift; sourceTree = "<group>"; };
 		C14E7A4224377D950036F860 /* FeedsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewController.swift; sourceTree = "<group>"; };
 		C14E7A4624377DF30036F860 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		C14E7A55243780AD0036F860 /* FeedListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListViewModelTests.swift; sourceTree = "<group>"; };
 		C14E7A56243780AD0036F860 /* FeedListServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListServiceTest.swift; sourceTree = "<group>"; };
 		C14E7A57243780AD0036F860 /* FeedListDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListDataSourceTests.swift; sourceTree = "<group>"; };
+		C14E7A5E2437B0B70036F860 /* HTTPServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServices.swift; sourceTree = "<group>"; };
 		F9D0FA6941EDEE205B8789E5 /* Pods-TaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTests.release.xcconfig"; path = "Target Support Files/Pods-TaskTests/Pods-TaskTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,7 +223,7 @@
 		C14E7A13243770590036F860 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A3F24377BB90036F860 /* HTTPServices.swift */,
+				C14E7A5E2437B0B70036F860 /* HTTPServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -464,11 +464,11 @@
 				C14E7A5124377DF30036F860 /* Reachability.swift in Sources */,
 				C14E7A17243770590036F860 /* AppDelegate.swift in Sources */,
 				C14E7A3624377B770036F860 /* Feed.swift in Sources */,
+				C14E7A5F2437B0B70036F860 /* HTTPServices.swift in Sources */,
 				C14E7A4424377D950036F860 /* FeedsListViewController.swift in Sources */,
 				C14E7A14243770590036F860 /* Config.swift in Sources */,
 				C14E7A15243770590036F860 /* Utils.swift in Sources */,
 				C14E7A3224377B680036F860 /* FeedsListViewModel.swift in Sources */,
-				C14E7A4024377BB90036F860 /* HTTPServices.swift in Sources */,
 				C14E7A4324377D950036F860 /* FeedListCell.swift in Sources */,
 				C14E7A4D24377DF30036F860 /* UIColor+Custom.swift in Sources */,
 				C14E7A4E24377DF30036F860 /* UIView+Design.swift in Sources */,
