@@ -19,9 +19,9 @@ class FeedListServiceTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testValidResponse() {
+    func testForValidResponse() {
 
-        let expectation = XCTestExpectation(description: "Loading Feeds Testing")
+        let expectation = XCTestExpectation(description: "Test for loading Feeds successfully")
 
         guard let url = URL(string: FEED_URL) else {
             fatalError("URL is incorrect!")
@@ -45,11 +45,11 @@ class FeedListServiceTest: XCTestCase {
 
     }
 
-    func testParseError() {
+    func testForParseError() {
 
-        let expectation = XCTestExpectation(description: "Parse Error Testing")
+        let expectation = XCTestExpectation(description: "Test to parse invalid response")
 
-        guard let url = URL(string: PARSE_ERROR_URL) else {
+        guard let url = URL(string: PARSEURL) else {
             fatalError("URL is incorrect!")
         }
 
@@ -57,10 +57,31 @@ class FeedListServiceTest: XCTestCase {
         HTTPServices().load(resource: all) { result in
 
             switch result {
-            case .success( _):
+            case .success:
                 expectation.fulfill()
             case .failure(let error):
-                XCTAssert(error == .decodingError, "Failed to parse the response")
+                XCTAssert(error == .decodingError, "Failed to decode the response")
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 5.0)
+    }
+    func testForInvalidURL() {
+
+        let expectation = XCTestExpectation(description: "Test for Invalid URL")
+
+        guard let url = URL(string: INVALIDURL) else {
+            fatalError("URL is incorrect!")
+        }
+
+        let all: Resource<FeedsList> = Resource<FeedsList>(url: url)
+        HTTPServices().load(resource: all) { result in
+
+            switch result {
+            case .success:
+                expectation.fulfill()
+            case .failure(let error):
+                XCTAssert(error == .domainError, "Failed to parse the response")
                 expectation.fulfill()
             }
 
@@ -69,6 +90,5 @@ class FeedListServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
 
     }
-    
 
 }

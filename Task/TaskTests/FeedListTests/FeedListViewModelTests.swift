@@ -23,26 +23,21 @@ class FeedListViewModelTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-        self.viewModel = nil
-        self.dataSource = nil
     }
 
     func testLoadFeeds() {
 
-        let expectation = XCTestExpectation(description: "Loading Feeds")
+        measure {
 
-        // expected completion to fail
-        viewModel.onErrorHandling = { error in
-            XCTAssertFalse(true)
-            expectation.fulfill()
+            viewModel.onErrorHandling = { error in
+                XCTAssertNotNil(error)
+            }
+            self.viewModel.loadingHandler = { [weak self ] in
+                XCTAssert((self?.viewModel.dataSource?.data.value.count)! > 0)
+            }
+            viewModel.loadFeeds()
+
         }
-
-        self.dataSource.data.addAndNotify(observer: self) { _ in
-            expectation.fulfill()
-        }
-
-        viewModel.loadFeeds()
-        wait(for: [expectation], timeout: 5.0)
 
     }
 

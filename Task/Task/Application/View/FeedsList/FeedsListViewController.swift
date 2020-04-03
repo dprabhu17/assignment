@@ -25,7 +25,7 @@ class FeedsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildUI()
-        bindViewModel()
+        initialize()
     }
 
     // MARK: Instance Methods
@@ -44,7 +44,7 @@ class FeedsListViewController: UITableViewController {
 
     }
 
-    func bindViewModel() {
+    func initialize() {
 
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self.dataSource
@@ -54,8 +54,6 @@ class FeedsListViewController: UITableViewController {
 
             DispatchQueue.main.async {
                 self?.title = self?.viewModel.title
-                Utils.hideLoading()
-                self?.endRefreshing()
                 self?.tableView.reloadData()
             }
 
@@ -65,10 +63,18 @@ class FeedsListViewController: UITableViewController {
         self.viewModel.onErrorHandling = {[weak self] error in
             DispatchQueue.main.async {
                 self?.endRefreshing()
-                Utils.handleError(error: error)
+                self?.title = Utils.getAppName()
+                Utils.handleError(error: error, viewController: self)
             }
         }
-
+        // Handle loading view
+        self.viewModel.loadingHandler = { [weak self ] in
+            DispatchQueue.main.async {
+                Utils.hideLoading()
+                self?.endRefreshing()
+            }
+        }
+        // loadFeeds
         Utils.showLoading(onView: self.view)
         viewModel.loadFeeds()
 

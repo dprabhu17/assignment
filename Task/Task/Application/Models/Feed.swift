@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// MARK: Codable object to decode items from API response
 struct Feed: Codable {
 
     let title: String?

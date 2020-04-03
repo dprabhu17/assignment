@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Custom Cell for Feed's TableView
 class FeedListCell: UITableViewCell {
 
     // MARK: Variables
@@ -77,7 +78,7 @@ class FeedListCell: UITableViewCell {
         // Adding vertical constraints
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-(edge)-[lblTitle]-(minEdge)-[lblDescription]-(>=edge)-|", options: [.alignAllLeading, .alignAllTrailing], metrics: sizeMetrics, views: viewsDictionary)
 
-        // Set min edge at the bottom edge
+        // Set bottom edge for the image
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:[imgFeed(imgHeight)]-(>=edge)-|", options: [], metrics: sizeMetrics, views: viewsDictionary)
 
         // Apply constraints to the current view

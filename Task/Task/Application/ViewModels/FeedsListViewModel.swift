@@ -8,18 +8,23 @@
 
 import UIKit
 
+// MARK: ViewModel for FeedsList View Controller
 class FeedsListViewModel {
 
+    // MARK: Variables
     weak var dataSource: GenericDataSource<Feed>?
     var onErrorHandling: ((NetworkError) -> Void)?
+    var loadingHandler: (() -> Void)?
     var title: String!
 
+    // MARK: Instance Methods
     init(dataSource: GenericDataSource<Feed>?) {
         self.dataSource = dataSource
     }
 
     func loadFeeds() {
 
+        CustomDownloadManager.shared.cancelAll()
          HTTPServices().load(resource: Feed.all) { [weak self] result in
 
             switch result {
@@ -33,18 +38,21 @@ class FeedsListViewModel {
 
             }
 
+            self?.loadingHandler?()
         }
 
     }
 
 }
 
+// MARK: Generic Data Source to use with Datasource and Delegate methods
 class GenericDataSource<T>: NSObject {
 
     var data: DynamicValue<[T]> = DynamicValue([])
 
 }
 
+// MARK: Data Source & Delegate methods of UITableView
 class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +62,7 @@ class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.value.count
     }
-
+    // create and set feed cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListCell", for: indexPath) as? FeedListCell
@@ -91,7 +99,7 @@ class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
+        // Reduce the operation priority for hidden cells
         if self.data.value.count == 0 { return }
         let imgURL = self.data.value[indexPath.row].imageURL
         CustomDownloadManager.shared.slowDownImageDownloadTaskfor(imageURL: imgURL)

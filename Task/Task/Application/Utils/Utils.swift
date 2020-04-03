@@ -18,6 +18,10 @@ class Utils: NSObject {
     private override init() {
         super.init()
     }
+}
+
+// MARK: UIComonents
+extension Utils {
 
     // Creates a Label
     static func createLabel(fontSize: CGFloat = 14, isBold: Bool = false) -> UILabel {
@@ -48,10 +52,12 @@ class Utils: NSObject {
 
     }
 
+    // Check the device is iPhone or not
     static func isPhone() -> Bool {
         return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone)
     }
 
+    // Set Empty message for Tableview
     static func setEmptyMessageForTableView(tableView: UITableView, dataSource: [Any], messageToDisplay: String) -> Int {
 
         if dataSource.count > 0 {
@@ -73,14 +79,16 @@ class Utils: NSObject {
 
     }
 
+    // To show loading for the given view
     static func showLoading(onView: UIView) {
-
        let spinnerView = UIView.init(frame: UIScreen.main.bounds)
        spinnerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
 
        let activityIndicator = UIActivityIndicatorView.init(style: .whiteLarge)
        activityIndicator.startAnimating()
+       activityIndicator.hidesWhenStopped = true
+
        activityIndicator.center = spinnerView.center
        activityIndicator.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin]
 
@@ -93,6 +101,7 @@ class Utils: NSObject {
 
     }
 
+    // Hide loading
     static func hideLoading() {
 
        DispatchQueue.main.async {
@@ -103,41 +112,44 @@ class Utils: NSObject {
        }
 
     }
+}
 
-    static func handleError(error: NetworkError) {
+// MARK: Handling Response Error
+extension Utils {
+    // Handle Error received from Server
+    static func handleError(error: NetworkError, viewController: UIViewController?) {
 
         var message: String!
         switch error {
 
         case .noNetworkFound:
-            message = "No Internet Connection found..!"
+            message = "Please check internet connection and try again!"
 
         case .decodingError:
-            message = "No Internet Connection found..!"
+            message = "Parsing Error, Please check your respone!"
 
         case .domainError:
-            message = "No Internet Connection found..!"
+            message = "Oops something went wrong. Please try again by pull down!"
 
         case .urlError:
-            message = "No Internet Connection found..!"
+            message = "Error occured, Please try again by pull down!"
 
         }
-        showAlert(message: message)
+        showAlert(message: message, viewController: viewController)
 
     }
 
+    // Get Application's Name
     static func getAppName() -> String {
         return Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Assignment"
     }
 
-    static func showAlert(message: String) {
+     // Show message in UIAlert
+     static func showAlert(message: String, viewController: UIViewController?) {
 
-        let title = getAppName()
-        let alert: UIAlertController! = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        print(message)
-        //UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-
-    }
-
+         let title = getAppName()
+         let alert: UIAlertController! = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+         viewController?.present(alert, animated: true, completion: nil)
+     }
 }

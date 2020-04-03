@@ -9,22 +9,26 @@
 import UIKit
 @testable import Task
 
-let PARSE_ERROR_URL = "https://www.google.com/"
+let PARSEURL = "https://www.google.com/"
+let INVALIDURL = "https://www.invalid.box.demo.test.com/"
 
 class TestCaseUtils {
-    
+
     // MARK: Singleton Instance
     static let shared = TestCaseUtils()
-    private init(){}
-    
+
+    private init() {
+
+    }
+
     // MARK: Mock Feeds for Testing
     func loadMockFeeds(count: Int) -> [Feed] {
-        
+
         var feeds: [Feed] = []
         for index in 0..<count {
             feeds.append(Feed(title: "Test \(index)", description: "Test description \(index)", imageURL: "img_url_temp_\(index)"))
         }
-        
+
         return feeds
     }
 

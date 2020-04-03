@@ -70,6 +70,7 @@ class CustomDownloadManager {
 
                 }
 
+                // Add created operation to the operation queue
                 imageDownloadQueue.addOperation(operation)
 
             }
@@ -86,7 +87,7 @@ class CustomDownloadManager {
 
        if let operations = (imageDownloadQueue.operations as? [DownloadOperation])?.filter({$0.imageUrl.absoluteString == imageURL && $0.isFinished == false && $0.isExecuting == true }), let operation = operations.first {
 
-           // print("Reduce the priority for \(url)")
+           // Reduce the priority of the operation to slow down the operation
            operation.queuePriority = .low
 
        }

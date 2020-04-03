@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Dynamic Value class to receive notifications to track if changes made on an array of objects
 class DynamicValue<T> {
 
     typealias CompletionHandler = ((T) -> Void)
