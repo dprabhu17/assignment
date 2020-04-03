@@ -12,5 +12,6 @@ class FeedsListViewController: UIViewController {
 
     override func viewDidLoad() {
         self.title = "Assignment"
+        FeedsListViewModel().loadFeeds()
     }
 }
