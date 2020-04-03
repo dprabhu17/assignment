@@ -30,10 +30,16 @@ class FeedListViewModelTests: XCTestCase {
         measure {
 
             viewModel.onErrorHandling = { error in
-                XCTAssertNotNil(error)
+                if error == .noNetworkFound {
+                    XCTAssertNotNil(error)
+                }
             }
             self.viewModel.loadingHandler = { [weak self ] in
-                XCTAssert((self?.viewModel.dataSource?.data.value.count)! > 0)
+                if let feeds = self?.viewModel.dataSource?.data.value {
+                    if feeds.count > 0 {
+                        XCTAssert(feeds.count > 0)
+                    }
+                }
             }
             viewModel.loadFeeds()
 

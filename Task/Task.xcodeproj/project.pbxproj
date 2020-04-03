@@ -137,8 +137,8 @@
 		C14E79D624376F840036F860 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A182437706D0036F860 /* AppComponents */,
 				C14E7A09243770590036F860 /* Application */,
+				C14E7A182437706D0036F860 /* AppComponents */,
 				C14E79F924376FC10036F860 /* OtherFiles */,
 				C14E79E524376F840036F860 /* Info.plist */,
 			);
@@ -167,10 +167,10 @@
 		C14E7A09243770590036F860 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A0A243770590036F860 /* ViewModels */,
-				C14E7A0B243770590036F860 /* Utils */,
 				C14E7A0E243770590036F860 /* Models */,
 				C14E7A0F243770590036F860 /* View */,
+				C14E7A0A243770590036F860 /* ViewModels */,
+				C14E7A0B243770590036F860 /* Utils */,
 				C14E7A12243770590036F860 /* AppDelegate.swift */,
 				C14E7A13243770590036F860 /* Services */,
 			);

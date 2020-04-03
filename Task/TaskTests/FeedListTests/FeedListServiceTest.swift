@@ -60,7 +60,11 @@ class FeedListServiceTest: XCTestCase {
             case .success:
                 expectation.fulfill()
             case .failure(let error):
-                XCTAssert(error == .decodingError, "Failed to decode the response")
+                if error == .noNetworkFound {
+                    XCTAssert((error == .noNetworkFound), "No internet found")
+                } else {
+                    XCTAssert(error == .decodingError, "Failed to decode the response")
+                }
                 expectation.fulfill()
             }
         }
@@ -81,7 +85,11 @@ class FeedListServiceTest: XCTestCase {
             case .success:
                 expectation.fulfill()
             case .failure(let error):
-                XCTAssert(error == .domainError, "Failed to parse the response")
+                if error == .noNetworkFound {
+                   XCTAssert((error == .noNetworkFound), "No internet found")
+                } else {
+                    XCTAssert(error == .domainError, "Failed to parse the response")
+                }
                 expectation.fulfill()
             }
 
