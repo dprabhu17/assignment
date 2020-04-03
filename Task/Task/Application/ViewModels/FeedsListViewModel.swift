@@ -67,6 +67,7 @@ class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableVi
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedListCell", for: indexPath) as? FeedListCell
         cell?.item = self.data.value[indexPath.row]
+        cell?.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell ?? UITableViewCell()
 
     }
