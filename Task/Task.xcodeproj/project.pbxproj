@@ -12,15 +12,18 @@
 		C14E7A0424376FC10036F860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C14E79FB24376FC10036F860 /* LaunchScreen.storyboard */; };
 		C14E7A14243770590036F860 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A0C243770590036F860 /* Config.swift */; };
 		C14E7A15243770590036F860 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A0D243770590036F860 /* Utils.swift */; };
-		C14E7A16243770590036F860 /* FeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A11243770590036F860 /* FeedsListViewController.swift */; };
 		C14E7A17243770590036F860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A12243770590036F860 /* AppDelegate.swift */; };
 		C14E7A3224377B680036F860 /* FeedsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3124377B680036F860 /* FeedsListViewModel.swift */; };
 		C14E7A3524377B770036F860 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3324377B770036F860 /* DynamicValue.swift */; };
 		C14E7A3624377B770036F860 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3424377B770036F860 /* Feed.swift */; };
-		C14E7A3C24377B8F0036F860 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3824377B8E0036F860 /* Reachability.swift */; };
-		C14E7A3D24377B8F0036F860 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3A24377B8E0036F860 /* UIColor+Custom.swift */; };
-		C14E7A3E24377B8F0036F860 /* UIView+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3B24377B8E0036F860 /* UIView+Design.swift */; };
 		C14E7A4024377BB90036F860 /* HTTPServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A3F24377BB90036F860 /* HTTPServices.swift */; };
+		C14E7A4324377D950036F860 /* FeedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4124377D950036F860 /* FeedListCell.swift */; };
+		C14E7A4424377D950036F860 /* FeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4224377D950036F860 /* FeedsListViewController.swift */; };
+		C14E7A4D24377DF30036F860 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4624377DF30036F860 /* UIColor+Custom.swift */; };
+		C14E7A4E24377DF30036F860 /* UIView+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4724377DF30036F860 /* UIView+Design.swift */; };
+		C14E7A4F24377DF30036F860 /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4924377DF30036F860 /* DownloadOperation.swift */; };
+		C14E7A5024377DF30036F860 /* CustomMediaDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4A24377DF30036F860 /* CustomMediaDownloadManager.swift */; };
+		C14E7A5124377DF30036F860 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E7A4C24377DF30036F860 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,15 +46,18 @@
 		C14E79FC24376FC10036F860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C14E7A0C243770590036F860 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C14E7A0D243770590036F860 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		C14E7A11243770590036F860 /* FeedsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewController.swift; sourceTree = "<group>"; };
 		C14E7A12243770590036F860 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C14E7A3124377B680036F860 /* FeedsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewModel.swift; sourceTree = "<group>"; };
 		C14E7A3324377B770036F860 /* DynamicValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
 		C14E7A3424377B770036F860 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		C14E7A3824377B8E0036F860 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		C14E7A3A24377B8E0036F860 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
-		C14E7A3B24377B8E0036F860 /* UIView+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Design.swift"; sourceTree = "<group>"; };
 		C14E7A3F24377BB90036F860 /* HTTPServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPServices.swift; path = ../../../../../Documents/AssignCTS/tmp/Task/Task/Application/Services/HTTPServices.swift; sourceTree = "<group>"; };
+		C14E7A4124377D950036F860 /* FeedListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListCell.swift; sourceTree = "<group>"; };
+		C14E7A4224377D950036F860 /* FeedsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewController.swift; sourceTree = "<group>"; };
+		C14E7A4624377DF30036F860 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		C14E7A4724377DF30036F860 /* UIView+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Design.swift"; sourceTree = "<group>"; };
+		C14E7A4924377DF30036F860 /* DownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
+		C14E7A4A24377DF30036F860 /* CustomMediaDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMediaDownloadManager.swift; sourceTree = "<group>"; };
+		C14E7A4C24377DF30036F860 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +175,8 @@
 		C14E7A10243770590036F860 /* FeedsList */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A11243770590036F860 /* FeedsListViewController.swift */,
+				C14E7A4124377D950036F860 /* FeedListCell.swift */,
+				C14E7A4224377D950036F860 /* FeedsListViewController.swift */,
 			);
 			path = FeedsList;
 			sourceTree = "<group>";
@@ -185,29 +192,37 @@
 		C14E7A182437706D0036F860 /* AppComponents */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A3924377B8E0036F860 /* Extensions */,
-				C14E7A3724377B8E0036F860 /* Reachability */,
+				C14E7A4524377DF30036F860 /* Extensions */,
+				C14E7A4824377DF30036F860 /* ImageDownloader */,
+				C14E7A4B24377DF30036F860 /* Reachability */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
 		};
-		C14E7A3724377B8E0036F860 /* Reachability */ = {
+		C14E7A4524377DF30036F860 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A3824377B8E0036F860 /* Reachability.swift */,
+				C14E7A4624377DF30036F860 /* UIColor+Custom.swift */,
+				C14E7A4724377DF30036F860 /* UIView+Design.swift */,
 			);
-			name = Reachability;
-			path = ../../../../Documents/AssignCTS/tmp/Task/Task/AppComponents/Reachability;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C14E7A3924377B8E0036F860 /* Extensions */ = {
+		C14E7A4824377DF30036F860 /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				C14E7A3A24377B8E0036F860 /* UIColor+Custom.swift */,
-				C14E7A3B24377B8E0036F860 /* UIView+Design.swift */,
+				C14E7A4924377DF30036F860 /* DownloadOperation.swift */,
+				C14E7A4A24377DF30036F860 /* CustomMediaDownloadManager.swift */,
 			);
-			name = Extensions;
-			path = ../../../../Documents/AssignCTS/tmp/Task/Task/AppComponents/Extensions;
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		C14E7A4B24377DF30036F860 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C14E7A4C24377DF30036F860 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,17 +325,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14E7A5124377DF30036F860 /* Reachability.swift in Sources */,
 				C14E7A17243770590036F860 /* AppDelegate.swift in Sources */,
 				C14E7A3624377B770036F860 /* Feed.swift in Sources */,
-				C14E7A3D24377B8F0036F860 /* UIColor+Custom.swift in Sources */,
+				C14E7A4424377D950036F860 /* FeedsListViewController.swift in Sources */,
 				C14E7A14243770590036F860 /* Config.swift in Sources */,
 				C14E7A15243770590036F860 /* Utils.swift in Sources */,
 				C14E7A3224377B680036F860 /* FeedsListViewModel.swift in Sources */,
-				C14E7A16243770590036F860 /* FeedsListViewController.swift in Sources */,
-				C14E7A3C24377B8F0036F860 /* Reachability.swift in Sources */,
 				C14E7A4024377BB90036F860 /* HTTPServices.swift in Sources */,
-				C14E7A3E24377B8F0036F860 /* UIView+Design.swift in Sources */,
+				C14E7A4324377D950036F860 /* FeedListCell.swift in Sources */,
+				C14E7A4D24377DF30036F860 /* UIColor+Custom.swift in Sources */,
+				C14E7A4E24377DF30036F860 /* UIView+Design.swift in Sources */,
+				C14E7A5024377DF30036F860 /* CustomMediaDownloadManager.swift in Sources */,
 				C14E7A3524377B770036F860 /* DynamicValue.swift in Sources */,
+				C14E7A4F24377DF30036F860 /* DownloadOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
