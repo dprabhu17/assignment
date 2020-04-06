@@ -14,14 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Variables
     var window: UIWindow?
     var navigationController: UINavigationController?
-    lazy var getInstance: AppDelegate? = {
-
-        if let appdelegate =  UIApplication.shared.delegate as? AppDelegate {
-            return appdelegate
-        }
-        return nil
-
-    }()
 
     // MARK: App's Lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
