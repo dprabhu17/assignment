@@ -25,7 +25,7 @@ class FeedListCell: UITableViewCell {
     }
 
     // MARK: UIElements
-    public var imgFeed: UIImageView! = Utils.createImageView()
+    public var imgFeed: UIImageView! = UIHelper.shared.createImageView()
 
     private let cardView: UIView = {
        let containerView = UIView()
@@ -34,11 +34,11 @@ class FeedListCell: UITableViewCell {
     }()
 
     private let lblTitle: UILabel = {
-        return Utils.createLabel(fontSize: FONT_TITLE, isBold: true)
+        return UIHelper.shared.createLabel(fontSize: FONT_TITLE, isBold: true)
      }()
 
     private let lblDescription: UILabel = {
-        return Utils.createLabel(fontSize: FONT_DEFAULT)
+        return UIHelper.shared.createLabel(fontSize: FONT_DEFAULT)
     }()
 
     // MARK: Initialization

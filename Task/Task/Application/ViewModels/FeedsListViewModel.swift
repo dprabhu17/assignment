@@ -13,7 +13,7 @@ class FeedsListViewModel {
 
     // MARK: Variables
     weak var dataSource: GenericDataSource<Feed>?
-    var onErrorHandling: ((NetworkError) -> Void)?
+    var onErrorHandling: ((NetworkError, String) -> Void)?
     var loadingHandler: (() -> Void)?
     var title: String!
 
@@ -34,7 +34,7 @@ class FeedsListViewModel {
                 self?.dataSource?.data.value = response.feeds.filter({ !($0.title?.isEmpty ?? true) && !($0.description?.isEmpty ?? true)})
 
             case .failure(let error):
-                 self?.onErrorHandling?(error)
+                self?.onErrorHandling?(error, error.description ?? "")
 
             }
 
@@ -56,7 +56,7 @@ class GenericDataSource<T>: NSObject {
 class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Utils.setEmptyMessageForTableView(tableView: tableView, dataSource: data.value, messageToDisplay: "No Feeds Found!")
+        return UIHelper.shared.setEmptyMessageForTableView(tableView: tableView, dataSource: data.value, messageToDisplay: "No Feeds Found!")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,21 +78,25 @@ class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableVi
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        // Choose upcoming cell and set placeholder image
-        (cell as? FeedListCell)?.imgFeed.image = UIImage.init(named: "placeholder")
-        let imgURL = self.data.value[indexPath.row].imageURL
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if tableView.visibleCells.contains(cell) {
+                // Choose upcoming cell and set placeholder image
+                (cell as? FeedListCell)?.imgFeed.image = UIImage.init(named: "placeholder")
+                let imgURL = self.data.value[indexPath.row].imageURL
+                print("Displaying Cell: %d", indexPath.row)
+                // Download image by using download manager
+                CustomDownloadManager.shared.downloadImage(url: imgURL, indexPath: indexPath) { (image, _, indexPathNew, _) in
 
-        // Download image by using download manager
-        CustomDownloadManager.shared.downloadImage(url: imgURL, indexPath: indexPath) { (image, _, indexPathNew, _) in
+                    if let indexPathNew = indexPathNew {
+                        DispatchQueue.main.async {
 
-            if let indexPathNew = indexPathNew {
-                DispatchQueue.main.async {
+                            if let getCell = tableView.cellForRow(at: indexPathNew) {
+                                (getCell as? FeedListCell)!.imgFeed.image = nil
+                                (getCell as? FeedListCell)!.imgFeed.image = image
+                            }
 
-                    if let getCell = tableView.cellForRow(at: indexPathNew) {
-                        (getCell as? FeedListCell)!.imgFeed.image = nil
-                        (getCell as? FeedListCell)!.imgFeed.image = image
+                        }
                     }
-
                 }
             }
         }

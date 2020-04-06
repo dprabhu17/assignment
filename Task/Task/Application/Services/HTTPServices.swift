@@ -7,16 +7,6 @@
 //
 
 import UIKit
-
-enum NetworkError: Error {
-
-    case noNetworkFound
-    case decodingError
-    case domainError
-    case urlError
-
-}
-
 enum HttpMethod: String {
 
     case get = "GET"

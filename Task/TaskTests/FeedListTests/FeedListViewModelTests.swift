@@ -29,7 +29,7 @@ class FeedListViewModelTests: XCTestCase {
 
         measure {
 
-            viewModel.onErrorHandling = { error in
+            viewModel.onErrorHandling = { (error, message) in
                 if error == .noNetworkFound {
                     XCTAssertNotNil(error)
                 }

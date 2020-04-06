@@ -31,7 +31,7 @@ class FeedsListViewController: UITableViewController {
     // MARK: Instance Methods
     private func buildUI() {
 
-        self.title = Utils.getAppName()
+        self.title = UIHelper.shared.getAppName()
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.white
@@ -60,22 +60,22 @@ class FeedsListViewController: UITableViewController {
         }
 
         // Receive errors for Calls
-        self.viewModel.onErrorHandling = {[weak self] error in
+        self.viewModel.onErrorHandling = {[weak self] (error, message) in
             DispatchQueue.main.async {
                 self?.endRefreshing()
-                self?.title = Utils.getAppName()
-                Utils.handleError(error: error, viewController: self)
+                self?.title = UIHelper.shared.getAppName()
+                UIHelper.shared.showAlert(message: message, viewController: self)
             }
         }
         // Handle loading view
         self.viewModel.loadingHandler = { [weak self ] in
             DispatchQueue.main.async {
-                Utils.hideLoading()
+                UIHelper.shared.hideLoading()
                 self?.endRefreshing()
             }
         }
         // loadFeeds
-        Utils.showLoading(onView: self.view)
+        UIHelper.shared.showLoading(onView: self.view)
         viewModel.loadFeeds()
 
     }

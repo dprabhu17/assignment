@@ -1,19 +1,19 @@
 //
-//  Utils.swift
+//  UIHelper.swift
 //  Task
 //
-//  Created by D, Prabhu (Cognizant) on 01/04/20.
+//  Created by D, Prabhu (Cognizant) on 06/04/20.
 //  Copyright © 2020 D, Prabhu (Cognizant). All rights reserved.
 //
 
 import UIKit
 
-class Utils: NSObject {
+class UIHelper: NSObject {
 
-    static var loader: UIView?
+    var loader: UIView?
 
     // Singleton instance
-    let shared = Utils()
+    static let shared = UIHelper()
 
     private override init() {
         super.init()
@@ -21,10 +21,10 @@ class Utils: NSObject {
 }
 
 // MARK: UIComonents
-extension Utils {
+extension UIHelper {
 
     // Creates a Label
-    static func createLabel(fontSize: CGFloat = 14, isBold: Bool = false) -> UILabel {
+    func createLabel(fontSize: CGFloat = 14, isBold: Bool = false) -> UILabel {
 
         let label = UILabel()
         label.textColor = .black
@@ -40,7 +40,7 @@ extension Utils {
     }
 
     // Creates a ImageView
-    static func createImageView() -> UIImageView {
+    func createImageView() -> UIImageView {
 
         let imgView = UIImageView()
         imgView.image = UIImage.init(named: "placeholder")
@@ -53,12 +53,12 @@ extension Utils {
     }
 
     // Check the device is iPhone or not
-    static func isPhone() -> Bool {
+    func isPhone() -> Bool {
         return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone)
     }
 
     // Set Empty message for Tableview
-    static func setEmptyMessageForTableView(tableView: UITableView, dataSource: [Any], messageToDisplay: String) -> Int {
+    func setEmptyMessageForTableView(tableView: UITableView, dataSource: [Any], messageToDisplay: String) -> Int {
 
         if dataSource.count > 0 {
 
@@ -68,7 +68,7 @@ extension Utils {
 
         } else {
 
-            let lblEmpty = Utils.createLabel(fontSize: FONT_TITLE, isBold: true)
+            let lblEmpty = UIHelper.shared.createLabel(fontSize: FONT_TITLE, isBold: true)
             lblEmpty.text = messageToDisplay
             lblEmpty.textAlignment = .center
             tableView.backgroundView = lblEmpty
@@ -80,7 +80,7 @@ extension Utils {
     }
 
     // To show loading for the given view
-    static func showLoading(onView: UIView) {
+    func showLoading(onView: UIView) {
        let spinnerView = UIView.init(frame: UIScreen.main.bounds)
        spinnerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -102,7 +102,7 @@ extension Utils {
     }
 
     // Hide loading
-    static func hideLoading() {
+    func hideLoading() {
 
        DispatchQueue.main.async {
 
@@ -112,44 +112,18 @@ extension Utils {
        }
 
     }
-}
-
-// MARK: Handling Response Error
-extension Utils {
-    // Handle Error received from Server
-    static func handleError(error: NetworkError, viewController: UIViewController?) {
-
-        var message: String!
-        switch error {
-
-        case .noNetworkFound:
-            message = "Please check internet connection and try again!"
-
-        case .decodingError:
-            message = "Parsing Error, Please check your respone!"
-
-        case .domainError:
-            message = "Oops something went wrong. Please try again by pull down!"
-
-        case .urlError:
-            message = "Error occured, Please try again by pull down!"
-
-        }
-        showAlert(message: message, viewController: viewController)
-
-    }
-
     // Get Application's Name
-    static func getAppName() -> String {
+    func getAppName() -> String {
         return Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Assignment"
     }
 
-     // Show message in UIAlert
-     static func showAlert(message: String, viewController: UIViewController?) {
+    // Show message in UIAlert
+    func showAlert(message: String, viewController: UIViewController?, callback: (() -> Void)? = nil) {
 
          let title = getAppName()
          let alert: UIAlertController! = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-         viewController?.present(alert, animated: true, completion: nil)
-     }
+         viewController?.present(alert, animated: true, completion: callback)
+
+    }
 }
