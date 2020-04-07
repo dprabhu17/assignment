@@ -83,7 +83,6 @@ class FeedsDataSource: GenericDataSource<Feed>, UITableViewDataSource, UITableVi
                 // Choose upcoming cell and set placeholder image
                 (cell as? FeedListCell)?.imgFeed.image = UIImage.init(named: "placeholder")
                 let imgURL = self.data.value[indexPath.row].imageURL
-                print("Displaying Cell: %d", indexPath.row)
                 // Download image by using download manager
                 CustomDownloadManager.shared.downloadImage(url: imgURL, indexPath: indexPath) { (image, _, indexPathNew, _) in
 
