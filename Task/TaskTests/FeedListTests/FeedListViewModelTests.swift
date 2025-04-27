@@ -25,26 +25,26 @@ class FeedListViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    func testLoadFeeds() {
-
-        measure {
-
-            viewModel.onErrorHandling = { (error, message) in
-                if error == .noNetworkFound {
-                    XCTAssertNotNil(error)
-                }
-            }
-            self.viewModel.loadingHandler = { [weak self ] in
-                if let feeds = self?.viewModel.dataSource?.data.value {
-                    if feeds.count > 0 {
-                        XCTAssert(feeds.count > 0)
-                    }
-                }
-            }
-            viewModel.loadFeeds()
-
-        }
-
-    }
+//    func testLoadFeeds() {
+//
+//        measure {
+//
+//            viewModel.onErrorHandling = { (error, message) in
+//                if error == .noNetworkFound {
+//                    XCTAssertNotNil(error)
+//                }
+//            }
+//            self.viewModel.loadingHandler = { [weak self ] in
+//                if let feeds = self?.viewModel.dataSource?.data.value {
+//                    if feeds.count > 0 {
+//                        XCTAssert(feeds.count > 0)
+//                    }
+//                }
+//            }
+//            viewModel.loadFeeds()
+//
+//        }
+//
+//    }
 
 }

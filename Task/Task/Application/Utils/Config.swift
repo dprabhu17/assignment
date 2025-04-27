@@ -16,4 +16,4 @@ let EDGE_SIZE: CGFloat = (UIHelper.shared.isPhone()) ? 12 : 20
 let MIN_EDGE_SIZE: CGFloat = (UIHelper.shared.isPhone()) ? 5 : 8
 
 // MARK: API Endpoint
-let FEED_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+let FEED_URL = "https://a7fe808a-1e6c-4008-816c-5e33f17046dd.mock.pstmn.io/getusers"

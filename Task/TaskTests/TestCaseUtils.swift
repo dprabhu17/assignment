@@ -10,7 +10,7 @@ import UIKit
 @testable import Task
 
 let PARSEURL = "https://www.google.com/"
-let INVALIDURL = "https://www.invalid.box.demo.test.com/"
+let INVALIDURL = "https://www.invalidurl.for-testing.com/"
 
 class TestCaseUtils {
 
